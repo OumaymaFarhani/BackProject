@@ -5,13 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 
-public class naturecritere {
+@Table(name = "naturecritere")
+public class Naturecritere implements java.io.Serializable {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(nullable = false,columnDefinition = "BIGINT(20)")
@@ -91,6 +93,23 @@ public class naturecritere {
 	public String toString() {
 		return "naturecritere [natureCritereId=" + natureCritereId + ", natureCritereLibelle=" + natureCritereLibelle
 				+ ", natureCritereDescription=" + natureCritereDescription + "]";
+	}
+
+
+
+	public Naturecritere(String natureCritereLibelle, String natureCritereDescription, String natureCritereLibelleAr,
+			String natureCritereDescriptionAr) {
+		super();
+		this.natureCritereLibelle = natureCritereLibelle;
+		this.natureCritereDescription = natureCritereDescription;
+		this.natureCritereLibelleAr = natureCritereLibelleAr;
+		this.natureCritereDescriptionAr = natureCritereDescriptionAr;
+	}
+
+
+
+	public Naturecritere() {
+
 	}
 	
 	

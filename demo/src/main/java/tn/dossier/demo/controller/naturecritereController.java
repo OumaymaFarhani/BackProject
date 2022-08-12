@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tn.dossier.demo.entity.naturecritere;
+import tn.dossier.demo.entity.Naturecritere;
 import tn.dossier.demo.repository.naturecritereRepository;
 import tn.dossier.demo.service.naturecritereService;
 
@@ -26,7 +26,7 @@ public class naturecritereController {
 	private naturecritereService nn;
 	
 	@PostMapping("/ajouter")
-	public naturecritere addnaturecritere(@RequestBody naturecritere n1) {
+	public Naturecritere addnaturecritere(@RequestBody Naturecritere n1) {
 		return nn.addnaturecritere( n1);
 	}
 	
@@ -38,13 +38,13 @@ public class naturecritereController {
 	}
 	
 	@GetMapping("/afficher")
-	public List<naturecritere> getAll(){
-		List<naturecritere> na =nn.retrieveAllnaturecritere();
+	public List<Naturecritere> getAll(){
+		List<Naturecritere> na =nn.retrieveAllnaturecritere();
 		return na;
 	}
 	@GetMapping("/afficherOne/{id}")
 	
-	public naturecritere getOne(@PathVariable int id){
+	public Naturecritere getOne(@PathVariable int id){
 		
 		return nn.getnaturecritere(id);
 	}
@@ -52,7 +52,7 @@ public class naturecritereController {
 
 	@PutMapping("/modifiernaturecritere")
 	@ResponseBody
-	public naturecritere updatenaturecritere(@RequestBody naturecritere n2) {
+	public Naturecritere updatenaturecritere(@RequestBody Naturecritere n2) {
 		System.out.println(n2);
 		return this.nn.updatenaturecritere(n2);
 	}

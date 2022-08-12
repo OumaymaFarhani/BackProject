@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tn.dossier.demo.entity.categoriesprojet;
-import tn.dossier.demo.entity.naturecritere;
+import tn.dossier.demo.entity.Categoriesprojet;
+import tn.dossier.demo.entity.Naturecritere;
 import tn.dossier.demo.service.categoriesprojetService;
 
 @RestController
@@ -28,20 +28,20 @@ public class categoriesprojetController {
 	
 	
 	@GetMapping("/affichercategoriesprojet")
-	public List<categoriesprojet> getAll(){
-		List<categoriesprojet> na =categories.retrieveAllcategoriesprojet();
+	public List<Categoriesprojet> getAll(){
+		List<Categoriesprojet> na =categories.retrieveAllcategoriesprojet();
 		return na;
 	}
 
 	
 	@PostMapping("/ajoutercategoriesprojet")
-	public categoriesprojet addcategoriesprojet(@RequestBody categoriesprojet c1) {
+	public Categoriesprojet addcategoriesprojet(@RequestBody Categoriesprojet c1) {
 		return categories.addcategoriesprojet( c1);
 	}
 	
 
 	@GetMapping("/affichercategoriesprojet/{id}")
-	public categoriesprojet getOne(@PathVariable int id){
+	public Categoriesprojet getOne(@PathVariable int id){
 		
 		return categories.getcategoriesprojet(id);
 	}
@@ -50,7 +50,7 @@ public class categoriesprojetController {
 
 	@PutMapping("/modifiercategoriesprojet")
 	@ResponseBody
-	public categoriesprojet updatecategoriesprojet(@RequestBody categoriesprojet c2) {
+	public Categoriesprojet updatecategoriesprojet(@RequestBody Categoriesprojet c2) {
 		System.out.println(c2);
 		return this.categories.updatecategoriesprojet(c2);
 	}

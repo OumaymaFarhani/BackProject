@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 
-public class categoriesprojet {
+public class Categoriesprojet {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(nullable = false,columnDefinition = "BIGINT(20)")
