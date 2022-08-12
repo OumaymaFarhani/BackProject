@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import tn.dossier.demo.entity.naturecritere;
+import tn.dossier.demo.entity.Naturecritere;
 import tn.dossier.demo.repository.naturecritereRepository;
 
 @Service
@@ -16,27 +16,27 @@ public class naturecritereService {
 	
 	
 	//getAll
-	public List<naturecritere> retrieveAllnaturecritere() {
+	public List<Naturecritere> retrieveAllnaturecritere() {
 		// TODO Auto-generated method stub
-		return (List<naturecritere>)nature.findAll();
+		return (List<Naturecritere>)nature.findAll();
 	}
 	
 	//getOne
-	public naturecritere  getnaturecritere (int id) {
+	public Naturecritere  getnaturecritere (int id) {
 		return nature.findById(id).get();
 		
 	}
 
 	
 	//Ajouter
-	public naturecritere addnaturecritere(naturecritere n) {
+	public Naturecritere addnaturecritere(Naturecritere n) {
 		// TODO Auto-generated method stub
 		nature.save(n);
 		return n;
 	}
 	
 	//Modifier
-	public naturecritere updatenaturecritere(naturecritere n1) {
+	public Naturecritere updatenaturecritere(Naturecritere n1) {
 		this.nature.save(n1);
 		return(n1);
 	}
