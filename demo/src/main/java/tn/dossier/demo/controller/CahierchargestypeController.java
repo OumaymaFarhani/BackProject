@@ -14,47 +14,48 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tn.dossier.demo.entity.Intervallestype;
-import tn.dossier.demo.entity.Naturecritere;
+import tn.dossier.demo.entity.Cahierchargestype;
 import tn.dossier.demo.entity.Typecahiercharges;
+import tn.dossier.demo.service.CahierchargestypeService;
 import tn.dossier.demo.service.TypeCahierChargesService;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/typeCahierCharges")
-public class TypeCahierChargesController {
+@RequestMapping("/cahierchargestype")
+public class CahierchargestypeController {
+	
 	@Autowired
-	private TypeCahierChargesService tt;
+	private CahierchargestypeService cahierchargeservice;
 	
 	@GetMapping("/afficher")
-	public List<Typecahiercharges> getAll(){
-		List<Typecahiercharges> na =tt.getAll();
+	public List<Cahierchargestype> getAll(){
+		List<Cahierchargestype> na =cahierchargeservice.getAll();
 		return na;
 	}
 	
-	@GetMapping("/afficherOne/{id}")
-	public Typecahiercharges getOne(@PathVariable int id){
+	@GetMapping("/afficher/{id}")
+	public Cahierchargestype getOne(@PathVariable long id){
 		
-		return tt.getone(id);
+		return cahierchargeservice.getone(id);
 	}
 	
 	@PostMapping("/ajouter")
-	public Typecahiercharges addtypecahiercharges(@RequestBody Typecahiercharges n1) {
-		return tt.addtypeCahierCharge( n1);
+	public Cahierchargestype addCahierchargestype(@RequestBody Cahierchargestype n1) {
+		return cahierchargeservice.addCahierchargestype(n1);
 	}
 	
 	@PutMapping("/modifier")
 	@ResponseBody
-	public Typecahiercharges updateitypecahiercharge(@RequestBody Typecahiercharges i) {
+	public Cahierchargestype updateCahierchargestype(@RequestBody Cahierchargestype i) {
 		System.out.println(i);
-		return this.tt.updatetypeCahierCharge(i);
+		return this.cahierchargeservice.updateCahierchargestype(i);
 	}
 	
 	
 	@DeleteMapping("/supprimer/{id}")
-	public void deletetypecahiercharge(@PathVariable int id) {
+	public void deleteCahierchargestype(@PathVariable long id) {
 		
-		tt.deletetypeCahierCharge(id);
+		cahierchargeservice.deleteCahierchargestype(id);
 		
 		
 	}

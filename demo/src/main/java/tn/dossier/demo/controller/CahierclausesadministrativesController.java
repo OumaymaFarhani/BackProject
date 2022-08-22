@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.dossier.demo.entity.CahierCharges;
 import tn.dossier.demo.entity.Cahierclausesadministratives;
+import tn.dossier.demo.entity.Criterescahierclausesadministratives;
 import tn.dossier.demo.service.CahierclausesadministrativesService;
 
 @RestController
@@ -27,6 +29,12 @@ public class CahierclausesadministrativesController {
 			return na;
 		}
 	 
+	 @GetMapping("/{id}")
+		public Cahierclausesadministratives getOne(@PathVariable long id ){
+			return cahierclausesadministratives.getCahierclausesadministratives(id);
+		}
+	 
+	 
 	 @GetMapping("/a/{id}")
 		public List<Cahierclausesadministratives> getAlls(@PathVariable long id ){
 			return cahierclausesadministratives.retrieveAllcahierclausesadministrativesByCahierCharge(id);
@@ -38,5 +46,12 @@ public class CahierclausesadministrativesController {
 			return cahierclausesadministratives.retrieve(id);
 		}
 	 
+	 
+	 @GetMapping("/clause/{id}")
+		public Object getClause(@PathVariable long id ){
+			return cahierclausesadministratives.getclause(id);
+		}
+	 
+	
 	 
 }

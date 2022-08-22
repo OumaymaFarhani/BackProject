@@ -1,5 +1,6 @@
 package tn.dossier.demo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -54,7 +55,7 @@ public class Intervallestype implements java.io.Serializable{
 	public void setIntervallesId(Long intervallesId) {
 		this.intervallesId = intervallesId;
 	}
-	@JsonIgnore
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "operateursSuperieurId")
 	public Operateurs getOperateurstypeByOperateursSuperieurId() {
@@ -65,7 +66,7 @@ public class Intervallestype implements java.io.Serializable{
 			Operateurs operateurstypeByOperateursSuperieurId) {
 		this.operateurstypeByOperateursSuperieurId = operateurstypeByOperateursSuperieurId;
 	}
-	@JsonIgnore
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Ope_operateursId")
 	public Operateurs getOperateurstypeByOpeOperateursId() {
@@ -76,13 +77,15 @@ public class Intervallestype implements java.io.Serializable{
 			Operateurs operateurstypeByOpeOperateursId) {
 		this.operateurstypeByOpeOperateursId = operateurstypeByOpeOperateursId;
 	}
-	@JsonIgnore
+	
+	//@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumns({
 			@JoinColumn(name = "cahierClausesFinancieresTechniquesId", referencedColumnName = "cahierClausesFinancieresTechniquesId"),
 			@JoinColumn(name = "criteresId", referencedColumnName = "criteresId") })
+
 	public Criterescahierclausesfinancierestechniquestype getCriterescahierclausesfinancierestechniquestype() {
-		return this.criterescahierclausesfinancierestechniquestype;
+		return criterescahierclausesfinancierestechniquestype;
 	}
 
 	public void setCriterescahierclausesfinancierestechniquestype(

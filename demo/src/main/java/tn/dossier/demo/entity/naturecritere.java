@@ -14,6 +14,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Table(name = "naturecritere")
 public class Naturecritere implements java.io.Serializable {
+	//private static final long serialVersionUID = -9201613714289686030L;
+	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(nullable = false,columnDefinition = "BIGINT(20)")
@@ -26,6 +28,10 @@ public class Naturecritere implements java.io.Serializable {
 	private String natureCritereLibelleAr;
 	@Column(columnDefinition = "TEXT")
 	private String natureCritereDescriptionAr;
+
+	public Naturecritere() {
+
+	}
 	
 	
 	
@@ -108,10 +114,6 @@ public class Naturecritere implements java.io.Serializable {
 
 
 
-	public Naturecritere() {
-
-	}
-	
 	
 
 }

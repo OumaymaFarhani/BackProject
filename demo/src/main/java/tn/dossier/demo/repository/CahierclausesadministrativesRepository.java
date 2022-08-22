@@ -9,10 +9,12 @@ import org.springframework.stereotype.Repository;
 
 import tn.dossier.demo.entity.CahierCharges;
 import tn.dossier.demo.entity.Cahierclausesadministratives;
+import tn.dossier.demo.entity.CriterescahierclausesadministrativesId;
 
 @Repository
 public interface CahierclausesadministrativesRepository extends JpaRepository<Cahierclausesadministratives, Long> {
 
 	List<Cahierclausesadministratives> findByCahierchargesCahierChargesId(Long id) ;
+//	List<Criterescahierclausesadministratives>
 	
 }

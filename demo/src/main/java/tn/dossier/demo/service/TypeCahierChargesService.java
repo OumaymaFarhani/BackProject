@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import tn.dossier.demo.entity.Typecahiercharges;
+import tn.dossier.demo.entity.Naturecritere;
 import tn.dossier.demo.entity.TypeCritere;
 import tn.dossier.demo.repository.TypeCahierChargesRepository;
 import tn.dossier.demo.repository.TypeCritereRepository;
@@ -42,6 +43,26 @@ public class TypeCahierChargesService {
 	
 	public Typecahiercharges getone(int id){
 		return typeCahierCharges.getById(id);
+	}
+	
+	
+	//Ajouter
+	public Typecahiercharges addtypeCahierCharge(Typecahiercharges typeCahierCharge) {
+		// TODO Auto-generated method stub
+		typeCahierCharges.save(typeCahierCharge);
+		return typeCahierCharge;
+	}
+	
+	//Modifier
+	public Typecahiercharges updatetypeCahierCharge(Typecahiercharges typeCahierCharge) {
+		this.typeCahierCharges.save(typeCahierCharge);
+		return(typeCahierCharge);
+	}
+	
+	//Supprimer
+	public void deletetypeCahierCharge(int id) {
+		// TODO Auto-generated method stub
+		typeCahierCharges.deleteById(id);
 	}
 	
 /*	

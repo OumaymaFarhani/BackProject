@@ -18,6 +18,8 @@ import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.Column;
 import javax.persistence.AttributeOverride;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -84,8 +86,8 @@ public class Criterescahierclausesfinancierestechniquestype implements java.io.S
 	public void setId(CriterescahierclausesfinancierestechniquestypeId id) {
 		this.id = id;
 	}
-
-	@ManyToOne(fetch = FetchType.EAGER)
+ @JsonIgnore
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "criteresId", nullable = false, insertable = false, updatable = false)
 	public Criterestype getCriterestype() {
 		return this.criterestype;
@@ -164,6 +166,24 @@ public class Criterescahierclausesfinancierestechniquestype implements java.io.S
 	public void setCriteresCahierClausesFinancieresTechniquesIdCritereAffecter(
 			Long criteresCahierClausesFinancieresTechniquesIdCritereAffecter) {
 		this.criteresCahierClausesFinancieresTechniquesIdCritereAffecter = criteresCahierClausesFinancieresTechniquesIdCritereAffecter;
+	}
+
+	@Override
+	public String toString() {
+		return "Criterescahierclausesfinancierestechniquestype [id=" + id + ", criterestype=" + criterestype
+				+ ", cahierclausesfinancierestechniquestype=" + cahierclausesfinancierestechniquestype
+				+ ", criteresCahierClausesFinancieresTechniquesValeur="
+				+ criteresCahierClausesFinancieresTechniquesValeur
+				+ ", criteresCahierClausesFinancieresTechniquesElimination="
+				+ criteresCahierClausesFinancieresTechniquesElimination
+				+ ", criteresCahierClausesFinancieresTechniquesBareme="
+				+ criteresCahierClausesFinancieresTechniquesBareme
+				+ ", criteresCahierClausesFinancieresTechniquesQuantite="
+				+ criteresCahierClausesFinancieresTechniquesQuantite
+				+ ", criteresCahierClausesFinancieresTechniquesBudjet="
+				+ criteresCahierClausesFinancieresTechniquesBudjet
+				+ ", criteresCahierClausesFinancieresTechniquesIdCritereAffecter="
+				+ criteresCahierClausesFinancieresTechniquesIdCritereAffecter + "]";
 	}
 
 //	@OneToMany(fetch = FetchType.EAGER, mappedBy = "criterescahierclausesfinancierestechniquestype")
