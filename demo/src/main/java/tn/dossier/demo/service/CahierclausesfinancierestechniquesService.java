@@ -28,4 +28,12 @@ public class CahierclausesfinancierestechniquesService {
 		// TODO Auto-generated method stub
 		return  cahierclausesfinancierestechniques.findByCahierchargesCahierChargesId(id);
 	}
+	
+	
+
+	//SupprimerClauseAdministrative
+	public void deleteClause(long id) {
+		// TODO Auto-generated method stub
+		cahierclausesfinancierestechniques.deleteById(id);
+	}
 }

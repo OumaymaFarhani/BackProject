@@ -80,7 +80,7 @@ public class CahierclausesadministrativesService {
 		//SupprimerClauseAdministrative
 		public void deleteClause(long id) {
 			// TODO Auto-generated method stub
-			cc.deleteById(id);
+			cahierclausesadministratives.deleteById(id);
 		}
 		
 		
