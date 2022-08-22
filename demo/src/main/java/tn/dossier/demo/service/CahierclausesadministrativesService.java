@@ -75,6 +75,15 @@ public class CahierclausesadministrativesService {
 					return cc.findById(id).get();
 							
 		}
+		
+
+		//SupprimerClauseAdministrative
+		public void deleteClause(long id) {
+			// TODO Auto-generated method stub
+			cc.deleteById(id);
+		}
+		
+		
 		//public List<Criterescahierclausesadministratives> 
 			
 		
