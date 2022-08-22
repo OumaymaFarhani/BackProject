@@ -3,6 +3,7 @@ package tn.dossier.demo.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,7 +15,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "criterestype")
 public class Criterestype implements java.io.Serializable {
 	private static final long serialVersionUID = 4173104594796863960L;
@@ -38,9 +43,7 @@ public class Criterestype implements java.io.Serializable {
 	public Criterestype() {
 	}
 
-	public Criterestype(Criterestype criterestype) {
-		this.criterestype = criterestype;
-	}
+	
 
 	public Criterestype(
 			Criterestype criterestype,
@@ -107,7 +110,7 @@ public class Criterestype implements java.io.Serializable {
 		this.criteresId = criteresId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY,cascade={CascadeType.ALL})
 	@JoinColumn(name = "Cri_criteresId")
 	public Criterestype getCriterestype() {
 		return this.criterestype;
@@ -194,7 +197,7 @@ public class Criterestype implements java.io.Serializable {
 		this.criterescategoriesprojettypes = criterescategoriesprojettypes;
 	}
 */
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "criterestype")
+/*	@OneToMany(fetch = FetchType.LAZY, mappedBy = "criterestype")
 	public Set<Criterescahierclausesfinancierestechniquestype> getCriterescahierclausesfinancierestechniquestypes() {
 		return this.criterescahierclausesfinancierestechniquestypes;
 	}
@@ -203,6 +206,7 @@ public class Criterestype implements java.io.Serializable {
 			Set<Criterescahierclausesfinancierestechniquestype> criterescahierclausesfinancierestechniquestypes) {
 		this.criterescahierclausesfinancierestechniquestypes = criterescahierclausesfinancierestechniquestypes;
 	}
+	*/
 //	
 //
 //	@OneToMany(fetch = FetchType.LAZY, mappedBy = "criterestype")
@@ -213,8 +217,8 @@ public class Criterestype implements java.io.Serializable {
 //	public void setCriterestypes(Set<Criterestype> criterestypes) {
 //		this.criterestypes = criterestypes;
 //	}
-	/*
 
+/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "criterestype")
 	public Set<Criterescahierclausesadministrativestype> getCriterescahierclausesadministrativestypes() {
 		return this.criterescahierclausesadministrativestypes;
@@ -225,4 +229,17 @@ public class Criterestype implements java.io.Serializable {
 		this.criterescahierclausesadministrativestypes = criterescahierclausesadministrativestypes;
 	}
 */
+
+	@Override
+	public String toString() {
+		return "Criterestype [criteresId=" + criteresId + ", criterestype=" + criterestype + ", categoriesprojettype="
+				+ categoriesprojettype + ", typecriteretype=" + typecriteretype + ", naturecritere=" + naturecritere
+				+ ", criteresLibelle=" + criteresLibelle + ", criteresAbreviation=" + criteresAbreviation
+				+ ", criteresElimination=" + criteresElimination + ", criteresDescription=" + criteresDescription
+				+ ", criterescahierclausesfinancierestechniquestypes=" + criterescahierclausesfinancierestechniquestypes
+				+ "]";
+	}
+
+	
+	
 }

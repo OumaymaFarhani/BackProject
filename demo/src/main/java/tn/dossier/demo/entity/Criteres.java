@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.FetchType;
 import static javax.persistence.GenerationType.IDENTITY;
@@ -18,6 +19,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import java.util.HashSet;
 import java.util.Set;
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "criteres")
 public class Criteres implements java.io.Serializable {
 	private static final long serialVersionUID = 1889491417017370307L;

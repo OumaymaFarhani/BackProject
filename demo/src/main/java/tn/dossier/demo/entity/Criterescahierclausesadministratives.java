@@ -7,11 +7,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 
 import javax.persistence.EmbeddedId;
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "criterescahierclausesadministratives")
 public class Criterescahierclausesadministratives implements java.io.Serializable {
 	private static final long serialVersionUID = -6550561221140208383L;

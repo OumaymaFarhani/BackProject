@@ -14,7 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "criterescahierclausesfinancierestechniques")
 public class Criterescahierclausesfinancierestechniques  implements java.io.Serializable{
 	
@@ -78,7 +83,7 @@ public class Criterescahierclausesfinancierestechniques  implements java.io.Seri
 	public void setId(CriterescahierclausesfinancierestechniquesId id) {
 		this.id = id;
 	}
-
+	 @JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "criteresId", nullable = false, insertable = false, updatable = false)
 	public Criteres getCriteres() {

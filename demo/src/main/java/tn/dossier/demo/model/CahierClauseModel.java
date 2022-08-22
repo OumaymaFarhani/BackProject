@@ -1,15 +1,17 @@
 package tn.dossier.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import tn.dossier.demo.entity.*;
 
-public class CahierClauseModel {
+public class CahierClauseModel   {
 	private Long cahierClausesAdministrativesId;
 	private Long cahierClausesFinancieresTechniquesId;
 private int typeCahierChargesId;
 	private String description;
 	private String libelle;
 	private Categoriesprojet categoriesprojet;
-	//private Long cahierChargesId;
+	private Long cahierChargesId;
 	private Typecahiercharges typecahiercharges;
 	private CahierCharges cahiercharges;
 	public String getDescription() {
@@ -40,12 +42,20 @@ private int typeCahierChargesId;
 	
 	
 	
+	public Long getCahierChargesId() {
+		return cahierChargesId;
+	}
+	public void setCahierChargesId(Long cahierChargesId) {
+		this.cahierChargesId = cahierChargesId;
+	}
+
 	public int getTypeCahierChargesId() {
 		return typeCahierChargesId;
 	}
 	public void setTypeCahierChargesId(int typeCahierChargesId) {
 		this.typeCahierChargesId = typeCahierChargesId;
 	}
+	
 	public Typecahiercharges getTypecahiercharges() {
 		return typecahiercharges;
 	}
@@ -96,12 +106,27 @@ private int typeCahierChargesId;
 		
 	}
 	
+	
+	public CahierClauseModel(Long cahierClausesAdministrativesId, Long cahierClausesFinancieresTechniquesId,
+			int typeCahierChargesId, String description, String libelle, Categoriesprojet categoriesprojet,
+			Typecahiercharges typecahiercharges, CahierCharges cahiercharges) {
+		super();
+		this.cahierClausesAdministrativesId = cahierClausesAdministrativesId;
+		this.cahierClausesFinancieresTechniquesId = cahierClausesFinancieresTechniquesId;
+		this.typeCahierChargesId = typeCahierChargesId;
+		this.description = description;
+		this.libelle = libelle;
+		this.categoriesprojet = categoriesprojet;
+		this.typecahiercharges = typecahiercharges;
+		this.cahiercharges = cahiercharges;
+	}
 	public Categoriesprojet getCategoriesprojet() {
 		return categoriesprojet;
 	}
 	public void setCategoriesprojet(Categoriesprojet categoriesprojet) {
 		this.categoriesprojet = categoriesprojet;
 	}
+
 	@Override
 	public String toString() {
 		return "CahierClauseModel [cahierClausesAdministrativesId=" + cahierClausesAdministrativesId
@@ -112,8 +137,19 @@ private int typeCahierChargesId;
 	}
 	
 	
+
+
+	/*
+	@Override
+	public String toString() {
+		return "CahierClauseModel [cahierClausesAdministrativesId=" + cahierClausesAdministrativesId
+				+ ", cahierClausesFinancieresTechniquesId=" + cahierClausesFinancieresTechniquesId
+				+ ", typeCahierChargesId=" + typeCahierChargesId + ", description=" + description + ", libelle="
+				+ libelle + ", categoriesprojet=" + categoriesprojet + ", typecahiercharges=" + typecahiercharges
+				+ ", cahiercharges=" + cahiercharges + "]";
+	}
 	
-	
+	*/
 	
 
 }

@@ -1,5 +1,6 @@
 package tn.dossier.demo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,8 +13,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
+
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "intervalles")
 public class Intervalles implements java.io.Serializable {
 	private static final long serialVersionUID = -497617848836301132L;
@@ -75,8 +79,9 @@ public class Intervalles implements java.io.Serializable {
 			Operateurs operateursByOpeOperateursId) {
 		this.operateursByOpeOperateursId = operateursByOpeOperateursId;
 	}
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
+ 
 	@JoinColumns({
 			@JoinColumn(name = "cahierClausesFinancieresTechniquesId", referencedColumnName = "cahierClausesFinancieresTechniquesId"),
 			@JoinColumn(name = "criteresId", referencedColumnName = "criteresId") })

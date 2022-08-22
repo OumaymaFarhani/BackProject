@@ -35,14 +35,15 @@ public class Typecahiercharges implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer typeCahierChargesId;
+	private Integer ordre;
 	private String typeCahierChargesLibelle;
 	private String typeCahierDesChargesDescription;
 	private String typeCahierDesChargesCode;
-		private List<Cahierclausesadministratives> cahierclausesadministratives = new ArrayList<Cahierclausesadministratives>(
+	/*	private List<Cahierclausesadministratives> cahierclausesadministratives = new ArrayList<Cahierclausesadministratives>(
 			0);
 	private List<Cahierclausesfinancierestechniques> cahierclausesfinancieresettechniques = new ArrayList<Cahierclausesfinancierestechniques>(
 			0);
-
+*/
 	public Typecahiercharges() {
 	}
 
@@ -67,6 +68,14 @@ public class Typecahiercharges implements java.io.Serializable {
 	public void setTypeCahierChargesId(Integer typeCahierChargesId) {
 		this.typeCahierChargesId = typeCahierChargesId;
 	}
+	@Column(name = "typeCahierChargesLibelle", length = 254)
+	public String getTypeCahierChargesLibelle() {
+		return typeCahierChargesLibelle;
+	}
+
+	public void setTypeCahierChargesLibelle(String typeCahierChargesLibelle) {
+		this.typeCahierChargesLibelle = typeCahierChargesLibelle;
+	}
 
 	@Column(name = "typeCahierChargesDescription", length = 254)
 	public String getTypeCahierDesChargesDescription() {
@@ -89,7 +98,15 @@ public class Typecahiercharges implements java.io.Serializable {
 	
 	
 	
-/*
+public Integer getOrdre() {
+		return ordre;
+	}
+
+	public void setOrdre(Integer ordre) {
+		this.ordre = ordre;
+	}
+
+	/*
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "typecahiercharges")
 	public Set<Cahierclausesadministratives> getCahierclausesadministratives() {
 		return this.cahierclausesadministratives;
@@ -100,16 +117,10 @@ public class Typecahiercharges implements java.io.Serializable {
 		this.cahierclausesadministratives = cahierclausesadministratives;
 	}
 	*/
-	@Column(name = "typeCahierChargesLibelle", length = 254)
-	public String getTypeCahierChargesLibelle() {
-		return typeCahierChargesLibelle;
-	}
+	
 
-	public void setTypeCahierChargesLibelle(String typeCahierChargesLibelle) {
-		this.typeCahierChargesLibelle = typeCahierChargesLibelle;
-	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "typecahiercharges")
+	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "typecahiercharges")
 	public List<Cahierclausesfinancierestechniques> getCahierclausesfinancierestechniques() {
 		return this.cahierclausesfinancieresettechniques;
 	}
@@ -118,25 +129,21 @@ public class Typecahiercharges implements java.io.Serializable {
 			List<Cahierclausesfinancierestechniques> Cahierclausesfinancierestechniques) {
 		this.cahierclausesfinancieresettechniques = cahierclausesfinancieresettechniques;
 	}
-
+*/
 	public Typecahiercharges(String typeCahierChargesLibelle, String typeCahierDesChargesDescription,
-			String typeCahierDesChargesCode, List<Cahierclausesadministratives> cahierclausesadministratives,
-			List<Cahierclausesfinancierestechniques> cahierclausesfinancieresettechniques) {
+			String typeCahierDesChargesCode) {
 		super();
 		this.typeCahierChargesLibelle = typeCahierChargesLibelle;
 		this.typeCahierDesChargesDescription = typeCahierDesChargesDescription;
 		this.typeCahierDesChargesCode = typeCahierDesChargesCode;
-		this.cahierclausesadministratives = cahierclausesadministratives;
-		this.cahierclausesfinancieresettechniques = cahierclausesfinancieresettechniques;
 	}
+	
 
 	@Override
 	public String toString() {
 		return "Typecahiercharges [typeCahierChargesId=" + typeCahierChargesId + ", typeCahierChargesLibelle="
 				+ typeCahierChargesLibelle + ", typeCahierDesChargesDescription=" + typeCahierDesChargesDescription
-				+ ", typeCahierDesChargesCode=" + typeCahierDesChargesCode + ", cahierclausesadministratives="
-				+ cahierclausesadministratives + ", cahierclausesfinancieresettechniques="
-				+ cahierclausesfinancieresettechniques + "]";
+				+ ", typeCahierDesChargesCode=" + typeCahierDesChargesCode + "]";
 	}
 
 

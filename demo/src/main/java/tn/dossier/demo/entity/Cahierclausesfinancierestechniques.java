@@ -2,6 +2,8 @@ package tn.dossier.demo.entity;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,9 +18,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "cahierclausesfinancierestechniques")
-public class Cahierclausesfinancierestechniques implements java.io.Serializable {
+public class Cahierclausesfinancierestechniques  {
 	private static final long serialVersionUID = 6752935714843474099L;
 	private Long cahierClausesFinancieresTechniquesId;
 	private Categoriesprojet categoriesprojet;
@@ -79,7 +83,7 @@ public class Cahierclausesfinancierestechniques implements java.io.Serializable 
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "typeCahierDesChargesId")
+	@JoinColumn(name = "typeCahierChargesId",insertable = false, updatable = false)
 	public Typecahiercharges getTypecahiercharges() {
 		return this.typecahiercharges;
 	}

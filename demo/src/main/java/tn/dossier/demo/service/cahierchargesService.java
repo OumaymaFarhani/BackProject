@@ -42,10 +42,7 @@ public class cahierchargesService {
 		//Ajoutercahiercharges
 				public CahierCharges addcahiercharges(CahierCharges c1) {
 					// TODO Auto-generated method stub
-					
-					
-					
-					c.save(c1);
+						c.save(c1);
 					return c1;
 				}
 				
@@ -173,7 +170,8 @@ public class cahierchargesService {
 					
 					System.out.println(cahierClauseModel);
 				Typecahiercharges type = new Typecahiercharges();
-				type=typeCahierCharges.getById(cahierClauseModel.getTypeCahierChargesId());
+				type.setTypeCahierChargesId(cahierClauseModel.getTypeCahierChargesId());
+					type.setTypeCahierChargesLibelle(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesLibelle());
 					
 					if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")) {
 						//insertion dans table admin
@@ -184,6 +182,7 @@ public class cahierchargesService {
 					cahierclausesadministrative.setCahierClausesAdministrativeDescription(cahierClauseModel.getDescription());
 					cahierclausesadministrative.setCategoriesprojet(cahierClauseModel.getCategoriesprojet());
 					cahierclausesadministrative.setTypecahiercharges(type);
+					
 						cahierclausesadministratives.save(cahierclausesadministrative);
 					}
 					else {

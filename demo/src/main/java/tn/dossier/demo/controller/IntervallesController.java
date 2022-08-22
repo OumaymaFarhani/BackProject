@@ -27,7 +27,9 @@ public class IntervallesController {
 	private IntervallesService intervallesService;
 	
 	@GetMapping("/afficherintervalles")
+	@ResponseBody
 	public List<Intervalles> findAll(){
+		
 		 List<Intervalles> intervale=intervallesService.retrieveAllintervalles();
 		 return intervale;
 	}

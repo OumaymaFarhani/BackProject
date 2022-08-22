@@ -11,7 +11,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 
-public class Categoriesprojet {
+public class Categoriesprojet implements java.io.Serializable{
+	private static final long serialVersionUID = 6630840835358775645L;
+
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(nullable = false,columnDefinition = "BIGINT(20)")
@@ -36,6 +38,19 @@ public class Categoriesprojet {
 		return categoriesProjetDescription;
 	}
 	public void setCategoriesProjetDescription(String categoriesProjetDescription) {
+		this.categoriesProjetDescription = categoriesProjetDescription;
+	}
+	
+	
+	
+	public Categoriesprojet() {
+		super();
+	}
+	public Categoriesprojet(int categoriesProjetId, String categoriesProjetLibelle,
+			String categoriesProjetDescription) {
+		super();
+		this.categoriesProjetId = categoriesProjetId;
+		this.categoriesProjetLibelle = categoriesProjetLibelle;
 		this.categoriesProjetDescription = categoriesProjetDescription;
 	}
 	@Override

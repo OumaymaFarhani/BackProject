@@ -9,5 +9,5 @@ import tn.dossier.demo.entity.Typecahiercharges;
 
 @Repository
 public interface TypeCahierChargesRepository  extends JpaRepository<Typecahiercharges, Integer> {
-	 
+	Typecahiercharges findBytypeCahierChargesId(Integer id);
 }

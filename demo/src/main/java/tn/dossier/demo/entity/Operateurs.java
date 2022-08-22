@@ -12,7 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "operateurs")
 public class Operateurs  implements java.io.Serializable{
 	private static final long serialVersionUID = -746082728970331105L;

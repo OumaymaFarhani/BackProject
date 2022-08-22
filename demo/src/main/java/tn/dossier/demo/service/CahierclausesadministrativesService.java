@@ -12,8 +12,12 @@ import org.springframework.stereotype.Service;
 import tn.dossier.demo.entity.CahierCharges;
 import tn.dossier.demo.entity.Cahierclausesadministratives;
 import tn.dossier.demo.entity.Cahierclausesfinancierestechniques;
+import tn.dossier.demo.entity.Categoriesprojet;
+import tn.dossier.demo.entity.Typecahiercharges;
+import tn.dossier.demo.model.CahierClauseModel;
 import tn.dossier.demo.repository.CahierclausesadministrativesRepository;
 import tn.dossier.demo.repository.CahierclausesfinancierestechniquesRepository;
+import tn.dossier.demo.repository.TypeCahierChargesRepository;
 import tn.dossier.demo.repository.cahierchargesRepository;
 
 @Service
@@ -24,7 +28,9 @@ public class CahierclausesadministrativesService {
 	private cahierchargesRepository cahiercharges;
 	@Autowired
 	private CahierclausesfinancierestechniquesRepository cc;
-	
+	@Autowired
+	private TypeCahierChargesRepository typeCahierCharges;
+
 	
 	//getAll
 			public List<Cahierclausesadministratives> retrieveAllcahierclausesadministratives() {
@@ -32,6 +38,12 @@ public class CahierclausesadministrativesService {
 				return (List<Cahierclausesadministratives>)cahierclausesadministratives.findAll();
 			}
 			
+			
+			//getOne
+			public Cahierclausesadministratives  getCahierclausesadministratives (long id) {
+				return cahierclausesadministratives.findById(id).get();
+				
+			}
 			public List<Cahierclausesadministratives> retrieveAllcahierclausesadministrativesByCahierCharge(Long id) {
 				// TODO Auto-generated method stub
 				return  cahierclausesadministratives.findByCahierchargesCahierChargesId(id);
@@ -48,6 +60,22 @@ public class CahierclausesadministrativesService {
 			return( List<Object> ) Stream.concat(list.stream(), list2.stream()).collect(Collectors.toList());
 			
 		}
+		
+		//getOne
+		public Object  getclause (Long id) {
+			Typecahiercharges type = new Typecahiercharges();
+			CahierClauseModel cahierClauseModel =new CahierClauseModel();
+			type=typeCahierCharges.getById(cahierClauseModel.getTypeCahierChargesId());
+				
+				if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP"))
+				
+				
+			return cahierclausesadministratives.findById(id).get();
+				else
+					return cc.findById(id).get();
+							
+		}
+		//public List<Criterescahierclausesadministratives> 
 			
 		
 

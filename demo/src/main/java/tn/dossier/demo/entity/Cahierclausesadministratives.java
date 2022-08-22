@@ -7,10 +7,14 @@ import java.util.Date;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -26,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table(name = "cahierclausesadministratives")
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
-public class Cahierclausesadministratives {
+public class Cahierclausesadministratives     {
 	private static final long serialVersionUID = -4405622908955932464L;
 	private Long cahierClausesAdministrativesId;
 	private Categoriesprojet categoriesprojet;
@@ -38,29 +42,10 @@ public class Cahierclausesadministratives {
 //	private Set<Criterescahierclausesadministratives> criterescahierclausesadministrativeses = new HashSet<Criterescahierclausesadministratives>(
 //			0);
 
-	public Cahierclausesadministratives() {
-	}
-
-	public Cahierclausesadministratives(CahierCharges cahiercharges) {
-		this.cahiercharges = cahiercharges;
-	}
-
-	public Cahierclausesadministratives(
-			Categoriesprojet categoriesprojet,
-			Typecahiercharges typecahiercharges,
-			CahierCharges cahiercharges,
-			String cahierClausesAdministrativesLibelle,
-			String cahierClausesAdministrativeDescription) {
-		this.categoriesprojet = categoriesprojet;
-		this.typecahiercharges = typecahiercharges;
-		this.cahiercharges = cahiercharges;
-		this.cahierClausesAdministrativesLibelle = cahierClausesAdministrativesLibelle;
-		this.cahierClausesAdministrativeDescription = cahierClausesAdministrativeDescription;
-	//	this.criterescahierclausesadministrativeses = criterescahierclausesadministrativeses;
-	}
-
+	
+	
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "cahierClausesAdministrativesId", unique = true, nullable = false)
 	public Long getCahierClausesAdministrativesId() {
 		return this.cahierClausesAdministrativesId;
@@ -81,8 +66,9 @@ public class Cahierclausesadministratives {
 		this.categoriesprojet = categoriesprojet;
 	}
 	//@JsonIgnore
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "typeCahierdesChargesId")
+	@ManyToOne(fetch = FetchType.LAZY)
+	      
+	@JoinColumn(name = "typeCahierChargesId",insertable = false, updatable = false)
 	public Typecahiercharges getTypecahiercharges() {
 		return this.typecahiercharges;
 	}
@@ -91,7 +77,7 @@ public class Cahierclausesadministratives {
 		this.typecahiercharges = typecahiercharges;
 	}
 
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cahierChargesId")
 	public CahierCharges getCahiercharges() {
@@ -140,6 +126,28 @@ public class Cahierclausesadministratives {
 	public void setCahierClauseAdministrativeReelDateCration(Date cahierClauseAdministrativeReelDateCration) {
 		CahierClauseAdministrativeReelDateCration = cahierClauseAdministrativeReelDateCration;
 	}
+
+	public Cahierclausesadministratives() {
+	
+	}
+
+	public Cahierclausesadministratives(Long cahierClausesAdministrativesId, Categoriesprojet categoriesprojet,
+			Typecahiercharges typecahiercharges, CahierCharges cahiercharges,
+			String cahierClausesAdministrativesLibelle, String cahierClausesAdministrativeDescription,
+			Date cahierClauseAdministrativeReelDateCration) {
+	
+		this.cahierClausesAdministrativesId = cahierClausesAdministrativesId;
+		this.categoriesprojet = categoriesprojet;
+		this.typecahiercharges = typecahiercharges;
+		this.cahiercharges = cahiercharges;
+		this.cahierClausesAdministrativesLibelle = cahierClausesAdministrativesLibelle;
+		this.cahierClausesAdministrativeDescription = cahierClausesAdministrativeDescription;
+		CahierClauseAdministrativeReelDateCration = cahierClauseAdministrativeReelDateCration;
+	}
+	
+	
+	
+	
 	
 
 

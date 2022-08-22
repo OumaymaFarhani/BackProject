@@ -18,10 +18,13 @@ import javax.persistence.TemporalType;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "cahierclausesadministrativestype")
-public class Cahierclausesadministrativestype {
+public class Cahierclausesadministrativestype implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 5039108129010838657L;
 	private Long cahierClausesAdministrativesId;
