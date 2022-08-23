@@ -65,7 +65,7 @@ public class CahierclausesadministrativesService {
 		public Object  getclause (Long id) {
 			Typecahiercharges type = new Typecahiercharges();
 			CahierClauseModel cahierClauseModel =new CahierClauseModel();
-			type=typeCahierCharges.getById(cahierClauseModel.getTypeCahierChargesId());
+			type=typeCahierCharges.getById(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesId());
 				
 				if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP"))
 				
@@ -86,6 +86,23 @@ public class CahierclausesadministrativesService {
 		
 		//public List<Criterescahierclausesadministratives> 
 			
-		
+		public void ajoutClause(Cahierclausesadministratives cahierclausesadministrative) {
+		 
+		Typecahiercharges type = new Typecahiercharges();
+		type.setTypeCahierChargesId(cahierclausesadministrative.getTypecahiercharges().getTypeCahierChargesId());
+			type.setTypeCahierChargesLibelle(cahierclausesadministrative.getTypecahiercharges().getTypeCahierChargesLibelle());
+			
+		 
+				//insertion dans table admin
+			
+			//cahierclausesadministrative.setCahierClausesAdministrativesId(cahierClauseModel.getCahierClausesAdministrativesId());
+			cahierclausesadministrative.setCahierClausesAdministrativesLibelle(cahierclausesadministrative.getCahierClausesAdministrativesLibelle());
+			cahierclausesadministrative.setCahiercharges(cahierclausesadministrative.getCahiercharges());
+			cahierclausesadministrative.setCahierClausesAdministrativeDescription(cahierclausesadministrative.getCahierClausesAdministrativeDescription());
+			cahierclausesadministrative.setCategoriesprojet(cahierclausesadministrative.getCategoriesprojet());
+			cahierclausesadministrative.setTypecahiercharges(type);
+			
+				cahierclausesadministratives.save(cahierclausesadministrative);	
+		}
 
 }

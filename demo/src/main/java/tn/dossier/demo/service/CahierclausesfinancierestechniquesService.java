@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import tn.dossier.demo.entity.Cahierclausesadministratives;
 import tn.dossier.demo.entity.Cahierclausesfinancierestechniques;
+import tn.dossier.demo.entity.Typecahiercharges;
 import tn.dossier.demo.repository.CahierclausesfinancierestechniquesRepository;
 import tn.dossier.demo.repository.cahierchargesRepository;
 
@@ -35,5 +36,25 @@ public class CahierclausesfinancierestechniquesService {
 	public void deleteClause(long id) {
 		// TODO Auto-generated method stub
 		cahierclausesfinancierestechniques.deleteById(id);
+	}
+	
+	public void ajoutClause(Cahierclausesfinancierestechniques ahierclausesfinancierestechniques ) {
+	 
+	Typecahiercharges type = new Typecahiercharges();
+	type.setTypeCahierChargesId(ahierclausesfinancierestechniques.getTypecahiercharges().getTypeCahierChargesId());
+		type.setTypeCahierChargesLibelle(ahierclausesfinancierestechniques.getTypecahiercharges().getTypeCahierChargesLibelle());
+		
+	 
+			//insertion dans table admin
+		
+		//cahierclausesadministrative.setCahierClausesAdministrativesId(cahierClauseModel.getCahierClausesAdministrativesId());
+		ahierclausesfinancierestechniques.setCahierDesClauseFinancierTechnqueLibelle(ahierclausesfinancierestechniques.getCahierDesClauseFinancierTechnqueLibelle());
+		ahierclausesfinancierestechniques.setCahiercharges(ahierclausesfinancierestechniques.getCahiercharges());
+		ahierclausesfinancierestechniques.setCahierClausesFinancieresTechniquesDescription(ahierclausesfinancierestechniques.getCahierClausesFinancieresTechniquesDescription());
+		ahierclausesfinancierestechniques.setCategoriesprojet(ahierclausesfinancierestechniques.getCategoriesprojet());
+		
+		ahierclausesfinancierestechniques.setTypecahiercharges(type);
+		
+		cahierclausesfinancierestechniques.save(ahierclausesfinancierestechniques );	
 	}
 }

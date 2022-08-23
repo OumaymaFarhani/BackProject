@@ -170,7 +170,45 @@ public class cahierchargesService {
 					
 					System.out.println(cahierClauseModel);
 				Typecahiercharges type = new Typecahiercharges();
-				type.setTypeCahierChargesId(cahierClauseModel.getTypeCahierChargesId());
+				type.setTypeCahierChargesId(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesId());
+					type.setTypeCahierChargesLibelle(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesLibelle());
+					
+					if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")) {
+						//insertion dans table admin
+					Cahierclausesadministratives cahierclausesadministrative = new Cahierclausesadministratives();
+					//cahierclausesadministrative.setCahierClausesAdministrativesId(cahierClauseModel.getCahierClausesAdministrativesId());
+					cahierclausesadministrative.setCahierClausesAdministrativesLibelle(cahierClauseModel.getLibelle());
+					cahierclausesadministrative.setCahiercharges(cahierClauseModel.getCahiercharges());
+					cahierclausesadministrative.setCahierClausesAdministrativeDescription(cahierClauseModel.getDescription());
+					cahierclausesadministrative.setCategoriesprojet(cahierClauseModel.getCategoriesprojet());
+					cahierclausesadministrative.setTypecahiercharges(type);
+					
+						cahierclausesadministratives.save(cahierclausesadministrative);
+					}
+					else {
+						//insertion table finananciere
+						Cahierclausesfinancierestechniques cahierclausesfinancierestechnique = new Cahierclausesfinancierestechniques();
+					//	cahierclausesfinancierestechnique.setCahierClausesFinancieresTechniquesId(cahierClauseModel.getCahierChargesId());
+						cahierclausesfinancierestechnique.setCahiercharges(cahierClauseModel.getCahiercharges());
+						
+						cahierclausesfinancierestechnique.setCahierDesClauseFinancierTechnqueLibelle(cahierClauseModel.getLibelle());
+						cahierclausesfinancierestechnique.setCahierClausesFinancieresTechniquesDescription(cahierClauseModel.getDescription());
+						cahierclausesfinancierestechnique.setCategoriesprojet(cahierClauseModel.getCategoriesprojet());
+						cahierclausesfinancierestechnique.setTypecahiercharges(type);
+						cahierclausesfinancierestechniques.save(cahierclausesfinancierestechnique);
+						
+					}
+				
+				}
+				
+				
+				
+				
+public void modifierClause(CahierClauseModel cahierClauseModel) {
+					
+					System.out.println(cahierClauseModel);
+				Typecahiercharges type = new Typecahiercharges();
+				type.setTypeCahierChargesId(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesId());
 					type.setTypeCahierChargesLibelle(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesLibelle());
 					
 					if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")) {
@@ -229,6 +267,27 @@ public class cahierchargesService {
 
 					return listtypecahiercharge;
 
+				}
+				
+				
+				
+				
+				//Supprimercategoriesprojet
+				public void deleteclause(long id) {
+					
+					
+					CahierClauseModel cahierClauseModel=new CahierClauseModel();
+				
+					Typecahiercharges type = new Typecahiercharges();
+					type.setTypeCahierChargesId(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesId());
+						type.setTypeCahierChargesLibelle(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesLibelle());
+						
+						if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")) {
+							
+					cahierclausesadministratives.deleteById(id);
+				}
+						else 
+							cahierclausesfinancierestechniques.deleteById(id);
 				}
 				
 				
