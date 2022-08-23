@@ -7,7 +7,7 @@ import tn.dossier.demo.entity.*;
 public class CahierClauseModel   {
 	private Long cahierClausesAdministrativesId;
 	private Long cahierClausesFinancieresTechniquesId;
-private int typeCahierChargesId;
+ 
 	private String description;
 	private String libelle;
 	private Categoriesprojet categoriesprojet;
@@ -49,12 +49,7 @@ private int typeCahierChargesId;
 		this.cahierChargesId = cahierChargesId;
 	}
 
-	public int getTypeCahierChargesId() {
-		return typeCahierChargesId;
-	}
-	public void setTypeCahierChargesId(int typeCahierChargesId) {
-		this.typeCahierChargesId = typeCahierChargesId;
-	}
+ 
 	
 	public Typecahiercharges getTypecahiercharges() {
 		return typecahiercharges;
@@ -108,12 +103,12 @@ private int typeCahierChargesId;
 	
 	
 	public CahierClauseModel(Long cahierClausesAdministrativesId, Long cahierClausesFinancieresTechniquesId,
-			int typeCahierChargesId, String description, String libelle, Categoriesprojet categoriesprojet,
+			  String description, String libelle, Categoriesprojet categoriesprojet,
 			Typecahiercharges typecahiercharges, CahierCharges cahiercharges) {
 		super();
 		this.cahierClausesAdministrativesId = cahierClausesAdministrativesId;
 		this.cahierClausesFinancieresTechniquesId = cahierClausesFinancieresTechniquesId;
-		this.typeCahierChargesId = typeCahierChargesId;
+	 
 		this.description = description;
 		this.libelle = libelle;
 		this.categoriesprojet = categoriesprojet;
@@ -131,7 +126,7 @@ private int typeCahierChargesId;
 	public String toString() {
 		return "CahierClauseModel [cahierClausesAdministrativesId=" + cahierClausesAdministrativesId
 				+ ", cahierClausesFinancieresTechniquesId=" + cahierClausesFinancieresTechniquesId
-				+ ", typeCahierChargesId=" + typeCahierChargesId + ", description=" + description + ", libelle="
+				+ ", description=" + description + ", libelle="
 				+ libelle + ", categoriesprojet=" + categoriesprojet + ", typecahiercharges=" + typecahiercharges
 				+ ", cahiercharges=" + cahiercharges + "]";
 	}

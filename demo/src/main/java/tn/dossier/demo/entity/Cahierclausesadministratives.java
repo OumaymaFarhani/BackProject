@@ -68,7 +68,7 @@ public class Cahierclausesadministratives     {
 	//@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	      
-	@JoinColumn(name = "typeCahierChargesId",insertable = false, updatable = false)
+	@JoinColumn(name = "typeCahierChargesId")
 	public Typecahiercharges getTypecahiercharges() {
 		return this.typecahiercharges;
 	}

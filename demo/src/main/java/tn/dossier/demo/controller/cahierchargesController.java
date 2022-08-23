@@ -116,6 +116,14 @@ public class cahierchargesController {
 		 cc.ajoutClause( CahierClauseModel);
 	}
 	
+	@PutMapping("/modifierclause")
+	@ResponseBody
+	
+	public void  updateclause1(@RequestBody CahierClauseModel CahierClauseModel) {
+	
+		 cc.modifierClause( CahierClauseModel);
+	}
+	
 
 	@PostMapping("/ajouterclause2/{idCahier}/{idType}/{idCategorie}")
 	@ResponseBody
@@ -131,6 +139,17 @@ public class cahierchargesController {
 	public List<Typecahiercharges> getOne(@PathVariable long id){
 		System.out.println("message");
 		return cc.removeTypes(id);
+	}
+	
+	
+	
+
+	@DeleteMapping("/supprimerclauses/{id}")
+	public void deleteclause(@PathVariable long id) {
+		
+		cc.deleteclause(id);
+		
+		
 	}
 
 }
