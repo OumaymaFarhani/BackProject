@@ -123,6 +123,15 @@ public class CahierCharges implements java.io.Serializable {
 		
 	}
 
+	@Override
+	public String toString() {
+		return "CahierCharges [cahierChargesId=" + cahierChargesId + ", categoriesprojet=" + categoriesprojet
+				+ ", cahierChargesLibelle=" + cahierChargesLibelle + ", cahierChargesDescription="
+				+ cahierChargesDescription + ", cahierclausesfinancierestechniques="
+				+ cahierclausesfinancierestechniques + ", cahierclausesadministratives=" + cahierclausesadministratives
+				+ "]";
+	}
+
 
 	
 	

@@ -45,7 +45,7 @@ public class CahierclausesfinancierestechniquesService {
 		type.setTypeCahierChargesLibelle(ahierclausesfinancierestechniques.getTypecahiercharges().getTypeCahierChargesLibelle());
 		
 	 
-			//insertion dans table admin
+			//insertion dans table financiere
 		
 		//cahierclausesadministrative.setCahierClausesAdministrativesId(cahierClauseModel.getCahierClausesAdministrativesId());
 		ahierclausesfinancierestechniques.setCahierDesClauseFinancierTechnqueLibelle(ahierclausesfinancierestechniques.getCahierDesClauseFinancierTechnqueLibelle());
