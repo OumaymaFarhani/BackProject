@@ -18,7 +18,7 @@ public class IntervallesService {
 
 	//getAll
 	public List<Intervalles> retrieveAllintervalles() {
-		// TODO Auto-generated method stub
+	 
 		return (List<Intervalles>)intervallesRepository.findAll();
 	}
 

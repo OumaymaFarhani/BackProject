@@ -57,26 +57,7 @@ public class CritereService {
 			}
 			
 			
-		/*	public void ajout() {
-				Criteres critere=new Criteres();
-				Typecahiercharges type = new Typecahiercharges();
-				
-				Cahierclausesadministratives cahierclausesadministratives=new Cahierclausesadministratives();
-				Criterescahierclausesadministratives criterescahierclausesadministratives =new Criterescahierclausesadministratives();
-				CriterescahierclausesadministrativesId criterescahierclausesadministrativesId=new CriterescahierclausesadministrativesId();
-				criterescahierclausesadministrativesId.setCahierClausesAdministrativesId(cahierclausesadministratives.getCahierClausesAdministrativesId());
-				criterescahierclausesadministrativesId.setCriteresId(critere.getCriteresId());
-				criterescahierclausesadministratives.setId(criterescahierclausesadministrativesId);
-				criterescahierclausesadministratives.setCriteres(critere);
-
-				critere.setCriteresElimination(Boolean.valueOf(critere.getCriteresLibelle()).booleanValue());
-				
-			
-				
-			}
-			
-			*/
-			
+	
 		
 
 }
