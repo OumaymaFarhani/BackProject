@@ -97,16 +97,7 @@ public class cahierchargesController {
 		cc.ajouterClause(c3, c1, idCahier, idType, idCategorie);
 	}
 
-	
-/*
-	@PostMapping("/ajouterclause1/{idCahier}/{idType}/{idCategorie}")
-	@ResponseBody
-	
-	public String  addclause1(@RequestBody Cahierclausesadministratives  c1,@PathVariable Long idCahier,@PathVariable int idType,@PathVariable int idCategorie) {
-		System.out.println(c1);
-		return cc.ajoutClause( c1, idCahier, idType, idCategorie);
-	}
-*/
+
 	
 	@PostMapping("/ajouterclause")
 	@ResponseBody
