@@ -24,14 +24,7 @@ public class CriterescahierclausesfinancierestechniquestypeController {
 	@Autowired
 	private CriterescahierclausesfinancierestechniquestypeService criterescahierclausesfinancierestechniquestypeservice;
 	
-/*
-	@GetMapping("/affichercriterefinanacieretype/{id}")
-	public  Criterescahierclausesfinancierestechniquestype findOne(@PathVariable Long id ) {
-		
-	        return criterescahierclausesfinancierestechniquestypeservice.getCriterescahierclausesfinancierestechniquestype(id);
-	}
-	
-	*/
+
 
 	
 	@GetMapping("/afficherCriteretype")
