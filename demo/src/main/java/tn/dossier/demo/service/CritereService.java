@@ -36,7 +36,10 @@ public class CritereService {
 			
 			//getOne
 			public Criteres  getCriteres (long id) {
-				return critereRepository.findById(id).get();
+				return 
+						critereRepository.findById(id).isPresent() ? 
+								critereRepository.findById(id).get(): null;
+				
 				
 			}
 			

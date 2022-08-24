@@ -59,7 +59,8 @@ public class cahierchargesService {
 				
 				//getOnecahiercharges
 				public CahierCharges  getcahiercharges (long id) {
-					return c.findById(id).get();
+					return c.findById(id).isPresent() ? 
+					        c.findById(id).get(): null;
 					
 				}
 				
@@ -173,7 +174,7 @@ public class cahierchargesService {
 				type.setTypeCahierChargesId(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesId());
 					type.setTypeCahierChargesLibelle(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesLibelle());
 					
-					if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")) {
+					if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")||type.getTypeCahierChargesLibelle().equals("CPS")) {
 						//insertion dans table admin
 					Cahierclausesadministratives cahierclausesadministrative = new Cahierclausesadministratives();
 					//cahierclausesadministrative.setCahierClausesAdministrativesId(cahierClauseModel.getCahierClausesAdministrativesId());
@@ -211,10 +212,10 @@ public void modifierClause(CahierClauseModel cahierClauseModel) {
 				type.setTypeCahierChargesId(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesId());
 					type.setTypeCahierChargesLibelle(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesLibelle());
 					
-					if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")) {
+					if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")||type.getTypeCahierChargesLibelle().equals("CPS")) {
 						//insertion dans table admin
 					Cahierclausesadministratives cahierclausesadministrative = new Cahierclausesadministratives();
-					//cahierclausesadministrative.setCahierClausesAdministrativesId(cahierClauseModel.getCahierClausesAdministrativesId());
+					 cahierclausesadministrative.setCahierClausesAdministrativesId(cahierClauseModel.getCahierClausesAdministrativesId());
 					cahierclausesadministrative.setCahierClausesAdministrativesLibelle(cahierClauseModel.getLibelle());
 					cahierclausesadministrative.setCahiercharges(cahierClauseModel.getCahiercharges());
 					cahierclausesadministrative.setCahierClausesAdministrativeDescription(cahierClauseModel.getDescription());
@@ -282,7 +283,7 @@ public void modifierClause(CahierClauseModel cahierClauseModel) {
 					type.setTypeCahierChargesId(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesId());
 						type.setTypeCahierChargesLibelle(cahierClauseModel.getTypecahiercharges().getTypeCahierChargesLibelle());
 						
-						if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")) {
+						if( type.getTypeCahierChargesLibelle().equals("CCAG") ||type.getTypeCahierChargesLibelle().equals("CCAP")||type.getTypeCahierChargesLibelle().equals("CPS")) {
 							
 					cahierclausesadministratives.deleteById(id);
 				}
