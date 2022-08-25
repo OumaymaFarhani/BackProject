@@ -30,7 +30,10 @@ public class CahierclausesfinancierestechniquesService {
 		return  cahierclausesfinancierestechniques.findByCahierchargesCahierChargesId(id);
 	}
 	
-	
+	public Cahierclausesfinancierestechniques  getCahierclausesfinancierestechniques (long id) {
+		return cahierclausesfinancierestechniques.findById(id).get();
+		
+	}
 
 	//SupprimerClauseAdministrative
 	public void deleteClause(long id) {

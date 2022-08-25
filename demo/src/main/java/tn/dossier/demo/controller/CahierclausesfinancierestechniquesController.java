@@ -36,6 +36,12 @@ public class CahierclausesfinancierestechniquesController {
 			return cahierclausesfinancierestechniques.retrieveAllcahierclausesfinancierestechniquesByCahierCharge(id);
 		}
 	 
+	 
+	 @GetMapping("/{id}")
+		public Cahierclausesfinancierestechniques getOne(@PathVariable long id ){
+			return cahierclausesfinancierestechniques.getCahierclausesfinancierestechniques(id);
+		}
+	 
 		@DeleteMapping("/supprimerclausefinanciere/{id}")
 		public void deleteclausefinanciere(@PathVariable long id) {
 			
