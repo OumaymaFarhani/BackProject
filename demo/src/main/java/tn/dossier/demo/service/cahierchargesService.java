@@ -33,6 +33,21 @@ public class cahierchargesService {
 	@Autowired
 	private TypeCahierChargesRepository typeCahierCharges;
 
+	private List<Typecahiercharges> listtypecahiercharge;
+	
+
+	private List<Cahierclausesadministratives> listcahierclausesadministrative;
+	private List<Cahierclausesfinancierestechniques> listcahierclausefinanciertechnique;
+	private  Cahierclausesadministratives cahierclausesadministratives1;
+	private  Cahierclausesfinancierestechniques cahierclausesfinancierestechniques1;
+	private CahierCharges cahiercharges;
+	private String selectedCahierType;
+	private String cahierclauselibelle;
+	private String cahierclauseDescription;
+	private String selectedCategorie;
+
+	private long nextId;
+	
 	//getAll
 		public List<CahierCharges> retrieveAllcahiercharges() {
 			// TODO Auto-generated method stub
@@ -290,6 +305,202 @@ public void modifierClause(CahierClauseModel cahierClauseModel) {
 						else 
 							cahierclausesfinancierestechniques.deleteById(id);
 				}
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				public void genererCahierClauses() {
+
+					// aucun cahiers des clauses affectés
+					if (listcahierclausesadministrative.size()
+							+ listcahierclausefinanciertechnique.size()== 0) {
+						ajouterCahierClauseNouvelle();
+
+					}
+				}
+				
+				
+				public void ajouterCahierClauseNouvelle() {
+
+					for (Typecahiercharges tc : listtypecahiercharge) {
+						selectedCahierType = tc.getTypeCahierChargesLibelle();
+						System.out.println(selectedCahierType);
+						cahierclauselibelle = cahiercharges.getCahierChargesLibelle()
+								.concat("_").concat(selectedCahierType);
+						cahierclauseDescription = cahiercharges
+								.getCahierChargesDescription().concat("_")
+								.concat(selectedCahierType);
+						ajouterCahierDesClauses(selectedCahierType, cahierclauselibelle,
+								cahierclauseDescription);
+
+					}
+					
+					verif();
+				}
+
+				public void ajouterCahierDesClauses(String cahierType,
+						String cahierClauseLibelle, String cahierClauseDescription) {
+
+					
+					if (cahierclausesadministratives1.getTypecahiercharges().getTypeCahierChargesLibelle().contains("Administratif")
+						) {
+						ajouterCahierClauseAdministrative(cahierType, cahierClauseLibelle,
+								cahierClauseDescription);
+
+					} else {
+
+						ajouterCahierClauseTechniqueFinanciere(cahierType,
+								cahierClauseLibelle, cahierClauseDescription);
+
+					}
+
+					
+
+				}
+
+
+			public void ajouterCahierClauseAdministrative(String cahierType,
+						String cahierClauseLibelle, String cahierClauseDescription) {
+					// code Jbeli Radhwen : set the next Id dans le cas d'une clause
+					// administrative
+					// =>bug : pas de sychronisation id entre les tables des cahiers clauses
+					cahierclausesadministratives1
+							.setCahierClausesAdministrativesId(new Long(nextId));
+					cahierclausesadministratives1.setTypecahiercharges(cahierclausesadministratives1.getTypecahiercharges());
+
+					try {
+						if (selectedCategorie != "") {
+							cahierclausesadministratives1.setCategoriesprojet(cahierclausesadministratives1.getCategoriesprojet());
+
+						} else {
+							cahierclausesadministratives1
+									.setCategoriesprojet(cahiercharges
+											.getCategoriesprojet());
+						}
+						cahierclausesadministratives1.setCahiercharges(cahiercharges);
+						cahierclausesadministratives1.
+								setCahierClausesAdministrativesLibelle(cahierClauseLibelle);
+						cahierclausesadministratives1
+								.setCahierClausesAdministrativeDescription(cahierClauseDescription);
+						
+						cahierclausesadministratives.save(cahierclausesadministratives1);
+						
+
+					} catch (Exception e) {
+					
+						System.out.println("***************Erreur***************");
+
+					}
+				}
+
+				/***************************** FinancTechn ******************************************/
+				public void ajouterCahierClauseTechniqueFinanciere(String cahierType,
+						String cahierClauseLibelle, String cahierClauseDescription) {
+
+					cahierclausesfinancierestechniques1
+							.setCahierClausesFinancieresTechniquesId(new Long(nextId));
+
+					// ////////////////////////////////////////////////////////////////////////////////////
+
+					if (selectedCategorie != "") {
+						cahierclausesfinancierestechniques1.setCategoriesprojet(cahierclausesfinancierestechniques1.getCategoriesprojet());
+
+					} else {
+						cahierclausesfinancierestechniques1
+								.setCategoriesprojet(cahiercharges
+										.getCategoriesprojet());
+					}
+					cahierclausesfinancierestechniques1.setTypecahiercharges(cahierclausesfinancierestechniques1.getTypecahiercharges());
+
+					cahierclausesfinancierestechniques1.setCahiercharges(cahiercharges);
+
+					cahierclausesfinancierestechniques1
+							.setCahierDesClauseFinancierTechnqueLibelle(cahierClauseLibelle);
+
+					cahierclausesfinancierestechniques1
+							.setCahierClausesFinancieresTechniquesDescription(cahierClauseDescription);
+
+					try {
+						cahierclausesfinancierestechniques.save(cahierclausesfinancierestechniques1);
+
+					} catch (Exception e) {
+
+						System.out.println("***************Erreur1***************");
+					
+					}
+
+				}
+
+
+
+
+
+				public void ajouterCahierClauseManquante() {
+
+					listtypecahiercharge = removeTypes(nextId);
+				
+					for (Typecahiercharges tc : listtypecahiercharge) {
+						selectedCahierType = tc.getTypeCahierChargesLibelle();
+						System.out.println(selectedCahierType);
+						cahierclauselibelle = cahiercharges.getCahierChargesLibelle()
+								.concat("_").concat(selectedCahierType);
+						cahierclauseDescription = cahiercharges
+								.getCahierChargesDescription().concat("_")
+								.concat(selectedCahierType);
+						ajouterCahierDesClauses(selectedCahierType, cahierclauselibelle,
+								cahierclauseDescription);
+
+					}
+
+				
+					verif();
+				}
+				
+				
+				
+				
+				
+				
+				
+					public void verif() {
+
+					while (listcahierclausesadministrative.size()
+							+ listcahierclausefinanciertechnique.size() < listtypecahiercharge
+							.size()) {
+
+						ajouterCahierClauseManquante();
+					}
+
+				}
+				
+				
+				
+				
 				
 				
 }
