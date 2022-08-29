@@ -14,6 +14,5 @@ public interface CriterescahierclausesadministrativesRepository extends JpaRepos
 	List<Criterescahierclausesadministratives> findByCahierclausesadministrativesCahierClausesAdministrativesId(Long id);
 	
 	
-	
 
 }
