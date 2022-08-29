@@ -143,4 +143,16 @@ public class cahierchargesController {
 		
 	}
 
+	
+/*
+	
+	@PostMapping("/ajoutertousclause")
+	@ResponseBody
+	
+	public void  addallClause(@RequestBody CahierClauseModel CahierClauseModel) {
+	
+		 cc.ajouterCahierClauseManquante( CahierClauseModel);
+	}
+	
+	*/
 }

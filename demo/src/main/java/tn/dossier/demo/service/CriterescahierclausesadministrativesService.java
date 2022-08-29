@@ -28,6 +28,10 @@ public class CriterescahierclausesadministrativesService {
 	public List<Criterescahierclausesadministratives> retrieveAll(long id){
 		return criterescahierclausesadminRepository.findByCahierclausesadministrativesCahierClausesAdministrativesId(id);
 	}
+	
+	public Criterescahierclausesadministratives retrieveOne(CriterescahierclausesadministrativesId id){
+		return criterescahierclausesadminRepository.findById(id).get();
+	}
 public void ajoutcritere(Criterescahierclausesadministratives c) {
 	criterescahierclausesadminRepository.save(c);
 }
