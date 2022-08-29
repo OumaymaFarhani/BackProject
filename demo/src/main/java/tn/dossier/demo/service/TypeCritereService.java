@@ -31,20 +31,20 @@ public class TypeCritereService {
 		}
 
 		
-		//Ajoutercategoriesprojet
+	 
 		public TypeCritere addTypeCritere(TypeCritere c) {
 			// TODO Auto-generated method stub
 			typecritererepo.save(c);
 			return c;
 		}
 		
-		//Modifiercategoriesprojet
+ 
 		public TypeCritere updateTypeCritere(TypeCritere cc) {
 			this.typecritererepo.save(cc);
 			return(cc);
 		}
 		
-		//Supprimercategoriesprojet
+		 
 		public void deleteTypeCritere(long id) {
 			// TODO Auto-generated method stub
 			typecritererepo.deleteById(id);

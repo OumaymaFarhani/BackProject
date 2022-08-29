@@ -57,7 +57,17 @@ public class CritereService {
 			}
 			
 			
-	
+	 
+			public Criteres updateCritere(Criteres cc) {
+				this.critereRepository.save(cc);
+				return(cc);
+			}
+			
+			 
+			public void deleteCritere(long id) {
+				// TODO Auto-generated method stub
+				critereRepository.deleteById(id);
+			}
 		
 
 }
