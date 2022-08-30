@@ -5,12 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
-
+@Table(name = "categoriesprojet")
 public class Categoriesprojet implements java.io.Serializable{
 	private static final long serialVersionUID = 6630840835358775645L;
 

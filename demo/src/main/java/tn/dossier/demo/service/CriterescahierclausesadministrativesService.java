@@ -47,4 +47,17 @@ public void saveCritereAdmin(Criterescahierclausesadministratives criterescahier
 	criterescahierclausesadministratives.setCriteres(criterescahierclausesadministratives.getCriteres());
 	criterescahierclausesadminRepository.save(criterescahierclausesadministratives);
 }
+
+
+//modifier un critere administrative
+public void updateCritereAdmin(Criterescahierclausesadministratives criterescahierclausesadministratives) {
+	 Criteres critere=new Criteres();
+	 Cahierclausesadministratives cahierclausesadministratives =new Cahierclausesadministratives();
+	CriterescahierclausesadministrativesId criterescahierclausesadministrativesId=new CriterescahierclausesadministrativesId();
+	criterescahierclausesadministrativesId.setCahierClausesAdministrativesId(criterescahierclausesadministratives.getId().getCahierClausesAdministrativesId());
+	criterescahierclausesadministrativesId.setCriteresId(criterescahierclausesadministratives.getId().getCriteresId());
+	criterescahierclausesadministratives.setId(criterescahierclausesadministrativesId);
+	criterescahierclausesadministratives.setCriteres(criterescahierclausesadministratives.getCriteres());
+	criterescahierclausesadminRepository.save(criterescahierclausesadministratives);
+}
 }

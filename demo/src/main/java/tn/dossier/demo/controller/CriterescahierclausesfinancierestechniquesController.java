@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.dossier.demo.entity.Criterescahierclausesadministratives;
@@ -55,5 +57,12 @@ public class CriterescahierclausesfinancierestechniquesController {
 	 public void addd(@RequestBody Criterescahierclausesfinancierestechniques c)
 	 {
 		criterescahierclausesfinancierestechniquesservice.saveCritereFinanciere(c);
+	 }
+	
+	@PutMapping("/modifiercriterescahierclausesfinancierestechniques")
+	@ResponseBody
+	 public void update(@RequestBody Criterescahierclausesfinancierestechniques c)
+	 {
+		criterescahierclausesfinancierestechniquesservice.updateCritereFinan(c);
 	 }
 }

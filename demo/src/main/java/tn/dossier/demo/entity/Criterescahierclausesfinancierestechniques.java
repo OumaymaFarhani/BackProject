@@ -83,7 +83,7 @@ public class Criterescahierclausesfinancierestechniques  implements java.io.Seri
 	public void setId(CriterescahierclausesfinancierestechniquesId id) {
 		this.id = id;
 	}
-	 @JsonIgnore
+	 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "criteresId", nullable = false, insertable = false, updatable = false)
 	public Criteres getCriteres() {
