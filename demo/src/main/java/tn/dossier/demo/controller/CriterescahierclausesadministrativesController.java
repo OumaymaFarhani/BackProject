@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import tn.dossier.demo.entity.Criteres;
@@ -46,10 +48,20 @@ public class CriterescahierclausesadministrativesController {
 	 }
 	
 	
+	
+	
 	@PostMapping("/ajoutercritereadministartive")
 	 public void addd(@RequestBody Criterescahierclausesadministratives c)
 	 {
 		 s.saveCritereAdmin(c);
+	 }
+	
+
+	@PutMapping("/modifiercritereadministartive")
+	@ResponseBody
+	 public void update(@RequestBody Criterescahierclausesadministratives c)
+	 {
+		 s.updateCritereAdmin(c);
 	 }
 
 }

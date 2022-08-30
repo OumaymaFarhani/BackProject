@@ -56,4 +56,15 @@ public class CriterescahierclausesfinancierestechniquesService {
 			 criterescahierclausesfinancierestechniquesRepository.save(criterescahierclausesfinancierestechniques);
 		}
 
+		//modifier un critere financ
+		public void updateCritereFinan(Criterescahierclausesfinancierestechniques criterescahierclausesfinancierestechniques) {
+			 Criteres critere=new Criteres();
+			 Cahierclausesfinancierestechniques cahierclausesfinancierestechniques =new Cahierclausesfinancierestechniques();
+			 CriterescahierclausesfinancierestechniquesId criterescahierclausesfinancierestechniquesId=new CriterescahierclausesfinancierestechniquesId();
+			 criterescahierclausesfinancierestechniquesId.setCahierClausesFinancieresTechniquesId(criterescahierclausesfinancierestechniques.getId().getCahierClausesFinancieresTechniquesId());
+			 criterescahierclausesfinancierestechniquesId.setCriteresId(criterescahierclausesfinancierestechniques.getId().getCriteresId());
+			 criterescahierclausesfinancierestechniques.setId(criterescahierclausesfinancierestechniquesId);
+			 criterescahierclausesfinancierestechniques.setCriteres(criterescahierclausesfinancierestechniques.getCriteres());
+			 criterescahierclausesfinancierestechniquesRepository.save(criterescahierclausesfinancierestechniques);
+		}
 }

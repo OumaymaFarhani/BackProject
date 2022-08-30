@@ -155,4 +155,12 @@ public class cahierchargesController {
 	}
 	
 	*/
+	
+	@GetMapping("/vvvv/{id}")
+	public void getAllll(@PathVariable Long id){
+		
+		  cc.genererCahierClauses1(id);
+	}
+	
+	
 }
